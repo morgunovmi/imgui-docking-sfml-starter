@@ -1,0 +1,12 @@
+{
+    "name": "prime-app", "version": "0.0.1",
+    "dependencies": [
+        {
+            "name": "imgui",
+            "default-features": false,
+            "features": [ "docking-experimental" ]
+        },
+        "sfml",
+        "imgui-sfml"
+    ]
+}

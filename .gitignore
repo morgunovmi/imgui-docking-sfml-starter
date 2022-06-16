@@ -1,0 +1,8 @@
+cmake-build-debug/
+.vs/
+.idea/
+.cache/
+build/
+bin/
+lib/
+CMakeFiles/
