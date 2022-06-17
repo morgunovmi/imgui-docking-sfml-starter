@@ -1,5 +1,7 @@
 # imgui-docking-sfml-starter
-A template starter project that you can use to start developing powerful GUI apps. The example app includes a basic dockspace setup with a scene rendered to an imgui window.
+A template starter project that you can use to start developing powerful GUI apps. The example app includes a basic dockspace setup with a simple scene rendered to an imgui window. It also shows how you can easily manipulate your SFML objects from imgui widgets.
+
+![2022-06-17_11-37-29_screenshot](https://user-images.githubusercontent.com/48750724/174261509-4db781c6-4aee-415f-a4b9-a51ab13b9762.png)
 
 ## Build
 
