@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "imgui.h"
 #include "imgui-SFML.h"
 
@@ -17,8 +19,7 @@ void setFancyImguiStyle() {
     colors[ImGuiCol_ChildBg] = ImVec4(0.15f, 0.18f, 0.22f, 1.00f);
     colors[ImGuiCol_PopupBg] = ImVec4(0.08f, 0.08f, 0.08f, 0.94f);
     colors[ImGuiCol_Border] = ImVec4(0.08f, 0.10f, 0.12f, 1.00f);
-    colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-    colors[ImGuiCol_FrameBg] = ImVec4(0.20f, 0.25f, 0.29f, 1.00f);
+    colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f); colors[ImGuiCol_FrameBg] = ImVec4(0.20f, 0.25f, 0.29f, 1.00f);
     colors[ImGuiCol_FrameBgHovered] = ImVec4(0.12f, 0.20f, 0.28f, 1.00f);
     colors[ImGuiCol_FrameBgActive] = ImVec4(0.09f, 0.12f, 0.14f, 1.00f);
     colors[ImGuiCol_TitleBg] = ImVec4(0.09f, 0.12f, 0.14f, 0.65f);
@@ -71,11 +72,12 @@ int main() {
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 
     auto fancyFont = io.Fonts->AddFontFromFileTTF(
-            "./resources/fonts/hubballi-regular.ttf", 26);
-    ImGui::SFML::UpdateFontTexture();
+            "./resources/fonts/hubballi-regular.ttf", 20);
+    if (!ImGui::SFML::UpdateFontTexture()) {
+        std::cerr << "No luck\n";
+    }
 
     setFancyImguiStyle();
-
 
     sf::Clock deltaClock{};
     while (window.isOpen()) {
@@ -104,6 +106,7 @@ int main() {
         rt.clear(sf::Color::Black);
         rt.draw(shape);
 
+        ImGui::PushFont(fancyFont);
         ImGui::DockSpaceOverViewport();
 
         ImGui::ShowDemoWindow();
@@ -124,6 +127,7 @@ int main() {
         }
         ImGui::End();
         ImGui::PopStyleVar();
+        ImGui::PopFont();
 
         window.clear();
         window.draw(shape);
