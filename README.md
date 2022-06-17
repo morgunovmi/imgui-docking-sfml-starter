@@ -27,7 +27,7 @@ git clone --recurse-submodules -j8 https://github.com/morgunovmi/imgui-docking-s
 cd imgui-docking-sfml-starter
 mkdir build
 cd build
-cmake -DCMAKE_TOOLCHAIN_FILE=../vendor/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_BUILD_TYPE=Debug ..
+cmake -GNinja -DCMAKE_TOOLCHAIN_FILE=../vendor/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_BUILD_TYPE=Debug ..
 cmake --build .
 ../bin/Debug/App
 ```
